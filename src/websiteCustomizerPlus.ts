@@ -1,3 +1,10 @@
-const bodyElement: CSSStyleDeclaration = document.body.style;
-bodyElement.background = 'yellow';
-console.log('hello')
+chrome.runtime.onMessage.addListener(
+    function(message, sender, sendResponse) {
+      document.body.style.background = "blue";
+      const messageHeader: HTMLHeadElement = document.createElement("H1");
+      messageHeader.innerText = message.greeting;
+      document.body.appendChild(messageHeader)
+
+      sendResponse({farewell: "Hola popup"});
+    }
+  );

@@ -13,13 +13,14 @@
       "default_title": "Webstie Customizer Plus",
       "default_popup": "popup.html"
     },
-    "permissions": ["tabs"],
     "content_scripts": [
       {
         "js": ["websiteCustomizerPlus.js"],
         "matches": [
-          "https://developer.chrome.com/docs/extensions/*"
+          "https://*/*"
         ]
       }
-    ]
+    ],
+    "permissions": ["storage", "tabs"]
+
  }
