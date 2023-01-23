@@ -1,19 +1,23 @@
-
-
-const inputElement: HTMLElement = document.getElementById('fname') as HTMLElement;
-
-inputElement.addEventListener('input', function (evt) {
-    let msg: string =  (evt as InputEvent).data as string ;
-    updateContentScript(msg);
-
-});
+import * as Util from '../shared/utils';
+import { Configs, configStorage } from '../shared/storage';
+import { Controls } from '../shared/const';
 
 
 
-const updateContentScript = async ( msg: string ) => {
-    const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
-    const tabId:number = tab.id?tab.id: 0;
-    const response = await chrome.tabs.sendMessage(tabId, {greeting: msg});
-    // do something with response here, not outside the function
-    console.log(response);
-  }
+loadConfigs();
+Util.getInput(Controls.darkModeActive).addEventListener('change', saveConfig)
+ 
+
+
+
+function loadConfigs(): void {
+    configStorage.get((configs) => {
+    Util.getInput(Controls.focusModeActive).checked = configs.focusMode;
+    });    
+}
+
+function saveConfig(): void {
+    const configs = new Configs();
+    configs.focusMode = Util.getInput(Controls.focusModeActive).checked;
+    configStorage.set(configs);
+}

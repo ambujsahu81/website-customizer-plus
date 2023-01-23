@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>Webstie Customizer Plus</title>
-    <!-- <link rel="stylesheet" href="popup.css" /> -->
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div>
-      <h1>Ciao!</h1>
-      <label for="fname">First name: </label>
-      <input type="text" id="fname" name="fname"><br><br>
+    <div class="card">
+      <div class="header">
+        <h3>Webstie Customizer Plus</h3>
+      </div>
+      <div class="body">
+        <label for="focus-mode-active">Enable focus mode</label>
+        <input type="checkbox" id="focus-mode-active" />
+        <br>
+        <label for="dark-mode-active">Enable dark mode</label>
+        <input type="checkbox" id="dark-mode-active" />
+        <br>
+      </div>
     </div>
     <script src="popup.js"></script>
   </body>
