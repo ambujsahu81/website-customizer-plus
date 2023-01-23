@@ -1,29 +1,24 @@
 import { Configs, configStorage } from './shared/storage';
+import * as Util from './shared/utils';
 
-
-let configs: Configs = new Configs();
-
-
-const refresh = (updatedConfigs?: Configs) : void => {
+const updateDom = (updatedConfigs?: Configs) : void => {
   if (updatedConfigs) {
-    configs = updatedConfigs;
-
-    // call all the methods here
-    document.body.style.background = 'blue';
-    console.log("somthing to get", updatedConfigs)
+    // do something with updated config nothin for now
   }
-  console.log("nothing to get", updatedConfigs)
+  refresh();
 }
 
-const newRefresh = (updatedConfigs?: Configs) : void => {
-  if (updatedConfigs) {
-    configs = updatedConfigs;
-  }
-  // call all the methods here
-  console.log("listening to get", updatedConfigs)
-  document.body.style.background = 'green';
+const refresh = () => {
+  configStorage.get((configs) => {
+    console.log(configs);
+    const pageConfig = configs.pageStyle.find(config => config.url === Util.getHostName(document.URL));
+    if (pageConfig) {
+      document.body.style.background = 'blue';
+    }
+  });  
 }
 
-configStorage.get(refresh);
-configStorage.listen(newRefresh);
+
+refresh();
+configStorage.listen(updateDom);
 

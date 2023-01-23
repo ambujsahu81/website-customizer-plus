@@ -1,23 +1,36 @@
+import './popup.css';
 import * as Util from '../shared/utils';
 import { Configs, configStorage } from '../shared/storage';
 import { Controls } from '../shared/const';
 
 
+(async () => {
+    const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+    const hostname: string = Util.getHostName(tab.url as string);
+    loadConfigs(hostname);
+    [Controls.darkModeActive , Controls.focusModeActive].forEach(Element => {
+        Util.getInput(Element).addEventListener('change', () =>saveConfig(hostname));
+    })
+})();
 
-loadConfigs();
-Util.getInput(Controls.darkModeActive).addEventListener('change', saveConfig)
- 
 
-
-
-function loadConfigs(): void {
+function loadConfigs(hostname: string): void {
     configStorage.get((configs) => {
-    Util.getInput(Controls.focusModeActive).checked = configs.focusMode;
+    const pageConfig = configs.pageStyle.find(config => config.url === hostname);
+    if (pageConfig) {
+        Util.getInput(Controls.focusModeActive).checked = pageConfig.focusMode;
+    }
     });    
 }
 
-function saveConfig(): void {
+function saveConfig(hostname: string): void {
     const configs = new Configs();
-    configs.focusMode = Util.getInput(Controls.focusModeActive).checked;
+    let findPageStyleIndex = configs.pageStyle.findIndex(config => config.url === hostname);
+
+    if (findPageStyleIndex === -1) {
+        configs.pageStyle.push({ url: hostname, focusMode: false});
+        findPageStyleIndex = configs.pageStyle.length - 1;
+    }
+    configs.pageStyle[findPageStyleIndex].focusMode = Util.getInput(Controls.focusModeActive).checked;
     configStorage.set(configs);
 }

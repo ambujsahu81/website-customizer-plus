@@ -1,5 +1,5 @@
 export class Configs {
-  focusMode: boolean = false;
+  pageStyle: {url: string, focusMode: boolean}[] = [];
 }
 
 export const configStorage = {
