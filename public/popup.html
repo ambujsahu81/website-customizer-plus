@@ -8,16 +8,82 @@
   <body>
     <div class="card">
       <div class="header">
-        <h3>Webstie Customizer Plus</h3>
+        <h2>Webstie Customizer Plus</h2>
       </div>
-      <div class="body" id="config">
-        <label for="focus-mode-active">Enable focus mode</label>
-        <input type="checkbox" id="focus-mode-active" />
-        <br>
-        <label for="dark-mode-active">Enable dark mode</label>
-        <input type="checkbox" id="dark-mode-active" />
-        <br>
+      <div class="card-body" id="config">
+        <div class="site-setting padding-left">
+          <div class="line-item">
+            <label id="siteInfo" class="site-info"></label>
+            <span  class="sub-label">Toggle all setting</span>
+          </div>
+          <div class="line-item paddingTop">
+            <input type="checkbox" id="disable-all-setting" checked="true"/>
+            <span class="sub-label paddingTop">on/off</span>  
+          </div>
+        </div>
+        <div class="tab">
+          <button class="tablinks" id="configButton">configuration</button>
+          <button class="tablinks" id="customOptionButton">custom option</button>
+        </div>
+        <!-- <h4 class="padding-left">Site Configuration</h4>
+        <br> -->
+        <div id="configuration" class="tabcontent marginTop">
+          <div class="config-items paddingTop"> 
+            <label for="focus-mode-active" class="defaultWidth">Enable focus mode</label>
+            <input type="checkbox" id="focus-mode-active" />
+          </div>
+          <div class="config-items">
+            <label for="dark-mode-active" class="defaultWidth">Enable adblocker</label>
+            <input type="checkbox" id="dark-mode-active" />
+          </div>
+          <div class="config-items">
+            <label for="dark-mode-active" class="defaultWidth">Hide all images</label>
+            <input type="checkbox" id="dark-mode-active" />
+          </div>
+          <div class="config-items">
+            <label for="dark-mode-active" class="defaultWidth">Enable dark mode</label>
+            <input type="checkbox" id="dark-mode-active" />
+          </div>          
+        </div>
+        <!-- <h4 class="padding-left">Apply custom option</h4> -->
+        <div id="customOption" class="tabcontent">          
+          <div class="config-select-item">
+            <span class="select-sub">Background color</span>
+            <input type="color" id="favcolor" name="favcolor" value="#3eac73">
+          </div>          
+          <div class="config-select-item">
+            <span  class="select-sub">Font Family</span>
+            <select name="cars" id="cars">
+              <option value="Gloria Hallelujah">Gloria Hallelujah</option>
+            </select>
+          </div>
+          <div class="config-select-item">
+            <span  class="select-sub">Font size</span>
+            <select name="cars" id="cars">
+              <option value="Gloria Hallelujah">small</option>
+            </select>
+          </div>
+          <div class="config-select-item">
+            <span  class="select-sub">Font weight</span>
+            <select name="fonts" id="fonts">
+              <option value="500">500</option>
+            </select>
+          </div>
+          <div class="config-select-item">
+            <span class="select-sub">Font color</span>
+            <input type="color" id="favcolor" name="favcolor" value="#1f0171">
+          </div>
+          <div class="config-select-item">
+            <span class="select-sub">Apply font style only to</span>
+            <input type="text" id="favcolor" name="favcolor" value="h1">
+          </div>
+        </div>        
       </div>
+
+    <div class="footer">
+      <a href="https://github.com/ambujsahu81/Website-Customizer-Plus" target="_blank">Github</a>
+      <a href="https://github.com/ambujsahu81/Website-Customizer-Plus/issues" target="_blank">Help</a>
+    </div>
     </div>
     <script src="popup.js"></script>
   </body>

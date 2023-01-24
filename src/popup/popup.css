@@ -1,3 +1,180 @@
+body {
+  background: #062e36;
+  font-family: math;
+  border: 1px solid white;
+  margin: 0.1rem;
+  padding: 0.3rem;
+}
+
 .card {
-  width: max-content;
+  width: 15rem;
+  padding: 0.2rem 0.5rem 0.5rem 0.5rem;
+  color: white;
+}
+
+.card-body {
+  margin-top: 0.5rem;;
+  font-size: 0.8rem;
+}
+
+.site-setting { 
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  display: flex;
+}
+
+.site-info {
+  border: 0.2rem solid #016c83;
+  padding-top: 0.3rem;  
+  padding-bottom: 0.3rem;
+  padding-inline: 0.2rem;
+  margin-right: 0.5rem;
+  max-width: 10rem;
+  min-width: 8rem;
+  overflow-x: hidden;
+}
+
+.line-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #ff7777;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.sub-label {
+  font-size: 0.7rem;
+  color: #9ca5b7;
+}
+
+.paddingTop {
+  padding-top: 0.3rem;
+}
+
+.defaultWidth {
+  width: 6.5rem;
+}
+
+h4 {
+  font-weight: 500;
+  color: #ff7777;
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+  border-bottom:0.2rem solid #016c83;
+}
+
+.padding-left {
+  padding-left: 0.9rem; 
+}
+
+.config-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+}
+
+input[type="color" i] {
+  padding: 0rem;
+  width: 9.5rem;
+  height: 1.1rem;
+  border: none;
+}
+
+select {
+  width: 9.5rem;
+}
+
+.config-select-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0.9rem;
+  padding-left: 1.9rem;
+}
+
+
+.select-sub {
+  color: #96a7c1;
+  margin-bottom: 0.3rem;
+}
+
+
+/* Style the tab */
+.tab {
+  margin-top: 1.2rem;
+  overflow: hidden;
+  background-color: #022d36;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  color: #93c1cb;
+  float: left;
+  border-bottom: 0.2rem solid #016c83;
+  border-left: unset;
+  border-right: unset;
+  border-top: unset;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #035a6c;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: #ff7777;
+  border-bottom: unset;
+  border-left: 0.2rem solid #016c83;
+  border-right: 0.2rem solid #016c83;
+  border-top: 0.2rem solid #016c83;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+input[type="text" i] {
+  width: 9rem;
+}
+
+input {
+  border: 0.2rem solid #016c83;
+  font-family: math;
+  background: #005466;
+  color: white;
+}
+
+.marginTop {
+  margin-top: 0.7rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+a {
+  color: #9ca5b7;
+  padding-inline: 0.5rem;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff7777;
 }
