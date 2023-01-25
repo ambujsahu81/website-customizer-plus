@@ -1,4 +1,4 @@
 export enum Controls {
-    focusModeActive = "focus-mode-active",
+    removeOptionActive = "remove-option-active",
     darkModeActive = "dark-mode-active",
   }

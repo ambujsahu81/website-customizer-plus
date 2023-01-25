@@ -1,5 +1,7 @@
+export  type PageStyle = {url: string, removeOption: boolean, darkMode: boolean};
+
 export class Configs {
-  pageStyle: {url: string, focusMode: boolean}[] = [];
+  pageStyle: PageStyle[] = [];
 }
 
 export const configStorage = {

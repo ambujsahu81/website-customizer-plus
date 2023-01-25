@@ -13,10 +13,12 @@ This extension provides ton of features to make your browsing experience unique 
   - Change text/page background colours.
   - offers options to hide all images on a page.
   - offers options to hide page favicons.
-  - offers options to turn on focus-mode on a page.
+  - offers options to temporary remove elements from a page.
 - Speeds up page loading and saves bandwidth, thanks to the missing ads and pop-up windows
 - offers option to use dark mode that aims to reduce the eyestrain of the user.
-- simple to use interface.
+- simple interface to use .
+
+![image](https://user-images.githubusercontent.com/118078892/214666265-59b8b433-cf56-4719-be9b-c7681f98f9e3.png)
 
 
 ## Install from Chrome Web Store
