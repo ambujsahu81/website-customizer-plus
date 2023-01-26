@@ -13,7 +13,7 @@ This extension provides ton of features to make your browsing experience unique 
   - Change text/page background colours.
   - offers options to hide all images on a page.
   - offers options to hide page favicons.
-  - offers options to temporary remove elements from a page.
+  - offers options to create a focus mode on the page.
 - Speeds up page loading and saves bandwidth, thanks to the missing ads and pop-up windows
 - offers option to use dark mode that aims to reduce the eyestrain of the user.
 - simple interface to use.

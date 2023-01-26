@@ -3,7 +3,6 @@ import * as Util from './shared/utils';
 import './websiteCustomizerPlus.css';
 
 
-
 const objectToBeRemoved: string[] = [];
 let pageStyle: PageStyle;
 let intervalID : any;
@@ -19,6 +18,8 @@ const updateDom = (updatedConfigs?: Configs): void => {
         } else {
           clearInterval(intervalID);
         }
+        HideAllImages(updatedPageStyle.hideImages);
+        hideElementsFromDom(updatedPageStyle.removeMode);
       }
     }
   });
@@ -29,12 +30,18 @@ const refresh = (): void => {
     if (configs) {
       pageStyle = configs.pageStyle.find(config => config.url === Util.getHostName(document.URL))!;
       if (pageStyle) {
+        // set the hide dom option to false
+        let pageStyleIndex = configs.pageStyle.findIndex(config => config.url === Util.getHostName(document.URL))!;
+        configs.pageStyle[pageStyleIndex].removeMode = false;
+        configStorage.set(configs);
+
         EnableDarkMode(pageStyle.darkMode);
         if (pageStyle.adblocker) {
           intervalID = setInterval(enableAdblocker, 3000);
         } else {
           clearInterval(intervalID);
         }
+        HideAllImages(pageStyle.hideImages);
       }
     }
   });
@@ -70,6 +77,29 @@ const EnableDarkMode = (flag: boolean): void => {
     style.appendChild(document.createTextNode(css))
     document.querySelector('head')!.appendChild(style)
   }
+}
+
+const HideAllImages = (flag: boolean): void => {
+  if ( flag ) {
+    let images = document.getElementsByTagName("img");
+    let images_length = images.length;
+    for (let i = 0; i < images_length; i++) {
+      images[i].style.setProperty("display", "none", "important");
+    }
+
+    /** now also hide images which are implemented in css */
+    let all_elements: any = document.querySelectorAll("*");
+    for(let i = 0 ; i < all_elements.length ; i++) {
+      all_elements[i].style.setProperty("background-image","unset","important");
+    }
+  } else {
+    let images = document.getElementsByTagName("img");
+    let images_length = images.length;
+    for (let i = 0; i < images_length; i++) {
+      images[i].style.setProperty("display", "inherit", "important");
+    }
+  }
+  
 }
 
 const enableAdblocker = (): void => {
@@ -150,3 +180,84 @@ const shouldIgnore = (elem: any) => {
 
 }
 
+const hideElementsFromDom = (flag: boolean): void => {
+  if (flag) {
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    overlay.style.cssText = `position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255 255 255 / 59%);
+    z-index: 99999;
+    pointer-events: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;`
+
+    const headerone = document.createElement('h1');
+    headerone.id = "headerOne"
+    headerone.style.cssText = `color: white; 
+    background: black;
+    margin: 0rem; 
+    text-align: center; 
+    `
+    headerone.innerText = 'select elements to focus';
+    const headertwo = document.createElement('h1');
+    headertwo.id = "headerTwo"
+    headertwo.style.cssText = `color: white; 
+    background: black;
+    margin: 0rem;
+    text-align: center;
+    `
+    headertwo.innerText = 'After selection click the remove button to remove the rest from page';
+    overlay.appendChild(headerone);
+    overlay.appendChild(headertwo);
+    document.body.appendChild(overlay);
+    const removeButton = document.createElement('button');
+    removeButton.textContent = "Remove rest of the content";
+    removeButton.id = "removeBttn";
+    removeButton.style.border = '1px solid red';
+    removeButton.style.color = 'red';
+    removeButton.style.background = 'black';
+    removeButton.style.position = 'fixed';
+    removeButton.style.zIndex= "999999";
+    removeButton.style.top = '15%';
+    removeButton.style.left = "50%";
+    removeButton.style.padding = "0.7rem";
+    removeButton.addEventListener('click',removeOverlay);
+    document.body.appendChild(removeButton);
+    document.body.querySelectorAll('a').forEach(Element => Element.style.pointerEvents = 'none' );
+    document.addEventListener('click', setFocusObject);
+  } else {
+    document.getElementById('overlay')?.remove();
+    document.querySelectorAll('.WCPElement').forEach(element => {
+      (element as HTMLElement).style.zIndex = "intial";
+      (element as HTMLElement).style.position = "inherit"
+    })
+    document.body.querySelectorAll('a').forEach(Element => Element.style.pointerEvents = 'auto' );
+  }
+}
+
+const setFocusObject = (e: any): void => {
+  (e.target as HTMLElement).style.border = "1px solid red";
+  (e.target as HTMLElement).classList.add("WCPElement");
+}
+
+const removeOverlay = (): void => {  
+  document.removeEventListener('click', setFocusObject);
+  document.getElementById('overlay')!.style.background = "rgb(255 255 255 / 100%)";
+  document.getElementById('headerOne')!.innerText =" FocusMode is On";
+  document.getElementById('headerTwo')?.remove();
+  document.getElementById('removeBttn')?.remove();
+  document.querySelectorAll('.WCPElement').forEach(element => {
+    (element as HTMLElement).style.border = "none";
+    (element as HTMLElement).style.zIndex = "999999";
+    (element as HTMLElement).style.position = "sticky"
+  })
+}
+
+ 
