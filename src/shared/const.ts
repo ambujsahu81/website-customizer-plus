@@ -1,4 +1,6 @@
 export enum Controls {
-    removeOptionActive = "remove-option-active",
-    darkModeActive = "dark-mode-active",
+    darkModeActive = "dark-mode",
+    enableAdblocker = "enable-adblocker",
+    removeMode = "remove-mode",
+    hideImageMode  = "hide-all-images"
   }

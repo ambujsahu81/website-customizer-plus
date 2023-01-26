@@ -1,4 +1,4 @@
-export  type PageStyle = {url: string, removeOption: boolean, darkMode: boolean};
+export  type PageStyle = {url: string, removeMode: boolean, darkMode: boolean, adblocker: boolean, hideImages: boolean};
 
 export class Configs {
   pageStyle: PageStyle[] = [];

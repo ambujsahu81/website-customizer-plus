@@ -8,7 +8,7 @@ import { Controls } from '../shared/const';
     const hostname: string = Util.getHostName(tab.url as string);
     loadConfigs(hostname);
     Util.getDomElement('siteInfo').innerText = 'www.'+hostname;    
-    [Controls.darkModeActive , Controls.removeOptionActive].forEach(Element => {
+    [Controls.darkModeActive , Controls.removeMode, Controls.enableAdblocker, Controls.hideImageMode].forEach(Element => {
         Util.getInput(Element).addEventListener('change', () =>saveConfig(hostname));
     })
     document.getElementById('configButton')?.addEventListener('click', ()=>changeTab('configuration'));
@@ -20,8 +20,10 @@ function loadConfigs(hostname: string): void {
     configStorage.get((configs) => {
     const pageConfig = configs.pageStyle.find(config => config.url === hostname);
     if (pageConfig) {
-        Util.getInput(Controls.removeOptionActive).checked = pageConfig.removeOption;
+        Util.getInput(Controls.removeMode).checked = pageConfig.removeMode;
         Util.getInput(Controls.darkModeActive).checked = pageConfig.darkMode;
+        Util.getInput(Controls.enableAdblocker).checked = pageConfig.adblocker;
+        Util.getInput(Controls.hideImageMode).checked = pageConfig.hideImages;
     }
     });    
 }
@@ -31,14 +33,14 @@ function saveConfig(hostname: string): void {
     let findPageStyleIndex = configs.pageStyle.findIndex(config => config.url === hostname);
 
     if (findPageStyleIndex === -1) {
-        configs.pageStyle.push({url: hostname, removeOption: false, darkMode: false});
+        configs.pageStyle.push({url: hostname, removeMode: false, darkMode: false, adblocker: false, hideImages: false});
         findPageStyleIndex = configs.pageStyle.length - 1;
     }
-    configs.pageStyle[findPageStyleIndex].removeOption = Util.getInput(Controls.removeOptionActive).checked;
+    configs.pageStyle[findPageStyleIndex].removeMode = Util.getInput(Controls.removeMode).checked;
     configs.pageStyle[findPageStyleIndex].darkMode = Util.getInput(Controls.darkModeActive).checked;
-
+    configs.pageStyle[findPageStyleIndex].adblocker = Util.getInput(Controls.enableAdblocker).checked;
+    configs.pageStyle[findPageStyleIndex].hideImages = Util.getInput(Controls.hideImageMode).checked;
     configStorage.set(configs);
-    window.close();
 }
 
 function changeTab(id: string): void{
