@@ -9,7 +9,7 @@
       "48": "icons/icon_48.png",
       "128": "icons/icon_128.png"
     },
-    "action": {
+   "action": {
       "default_title": "Webstie Customizer Plus",
       "default_popup": "popup.html"
     },

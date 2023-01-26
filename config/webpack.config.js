@@ -10,7 +10,7 @@ const config = (env, argv) =>
   merge(common, {
     entry: {
       popup: PATHS.src + '/popup/popup.ts',
-      websiteCustomizerPlus: PATHS.src + '/websiteCustomizerPlus.ts',
+      websiteCustomizerPlus: PATHS.src + '/websiteCustomizerPlus.ts'
     },
     devtool: argv.mode === 'production' ? false : 'source-map',
   });
