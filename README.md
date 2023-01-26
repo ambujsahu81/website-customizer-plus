@@ -7,7 +7,7 @@ With website customizer plus you can customize any website with few simple click
 This extension provides ton of features to make your browsing experience unique and smooth, oriented exactly as per your preferences.
 
 ## Features
-- Offers Unmatched adblocker which can blocks all ads: video ads (includes YouTube adblock), rich media advertising, unwanted pop-ups, banners and text ads (includes Facebook adblock);
+- Offers option to remove ads on page, which does improve readability.
 - Create your own style for any websites.
   - Fine-tune your font settings for each website.
   - Change text/page background colours.
