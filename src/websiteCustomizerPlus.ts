@@ -316,7 +316,6 @@ const applyCustomPropertiesToDom = ( pageStyle: PageStyle): void => {
       (Element as HTMLElement).style.fontWeight = pageStyle.customeFontWeight!;
     }
     if (pageStyle.customFontColor!="#FFFFFF" && pageStyle.customFontColor!="#ffffff") {
-      console.log("again we are getting here",pageStyle.customFontColor);
       (Element as HTMLElement).style.color = pageStyle.customFontColor!;
     }
     if (pageStyle.customFontSize!='') {
