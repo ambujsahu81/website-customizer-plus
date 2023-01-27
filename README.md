@@ -2,7 +2,7 @@
 # ![icon_32](https://user-images.githubusercontent.com/118078892/213908738-9b5ac0a4-e8d7-424b-a5c0-0b740328246d.png) Website Customizer Plus 
 
 
-Website customizer plus extension can customize any website with few simple clicks.
+Website customizer plus extension can help to customize any website with few simple clicks.
 
 This extension provides ton of features to make your browsing experience unique and smooth, oriented exactly as per your preferences.
 
@@ -48,7 +48,7 @@ https://user-images.githubusercontent.com/118078892/215086280-cb934bcf-e3e8-46fb
 
 
 
-## Steps to install
+## Build and Run
 ```js
  git clone https://github.com/ambujsahu81/Website-Customizer-Plus.git
  cd Website-Customizer-Plus
