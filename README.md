@@ -23,9 +23,7 @@ This extension provides ton of features to make your browsing experience unique 
 
 
 
-
-https://user-images.githubusercontent.com/118078892/214935999-7ae66e68-e550-4d3a-9b05-dfe64dc617a9.mp4
-
+https://user-images.githubusercontent.com/118078892/215018592-78282805-1c67-4bf5-851f-03bdc5f52548.mp4
 
 
 
