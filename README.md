@@ -18,7 +18,17 @@ This extension provides ton of features to make your browsing experience unique 
 - offers option to use dark mode that aims to reduce the eyestrain of the user.
 - simple interface to use.
 
-![image](https://user-images.githubusercontent.com/118078892/214666265-59b8b433-cf56-4719-be9b-c7681f98f9e3.png)
+## Watch a small demo below to understand how it works.
+
+
+
+
+https://user-images.githubusercontent.com/118078892/215018592-78282805-1c67-4bf5-851f-03bdc5f52548.mp4
+
+
+
+
+
 
 
 ## Install from Chrome Web Store
