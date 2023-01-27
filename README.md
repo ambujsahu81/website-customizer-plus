@@ -2,7 +2,7 @@
 # ![icon_32](https://user-images.githubusercontent.com/118078892/213908738-9b5ac0a4-e8d7-424b-a5c0-0b740328246d.png) Website Customizer Plus 
 
 
-With website customizer plus you can customize any website with few simple clicks.
+Website customizer plus extension can customize any website with few simple clicks.
 
 This extension provides ton of features to make your browsing experience unique and smooth, oriented exactly as per your preferences.
 
@@ -14,26 +14,26 @@ This extension provides ton of features to make your browsing experience unique 
   - offers options to hide all images on a page.
   - offers options to hide page favicons.
   - offers options to create a focus mode on the page.
-- Speeds up page loading and saves bandwidth, thanks to the missing ads and pop-up windows
+- Speeds up the page loading and saves bandwidth, thanks to the missing ads and pop-up windows
 - offers option to use dark mode that aims to reduce the eyestrain of the user.
 - simple interface to use.
 
 ## Demo.
 
-- Improve reading experience by using Focus Mode and enabling adblocker or by hiding images on any website
+- Improve reading experience by using Focus Mode options, by enabling adblocker or by hiding images on any website.
 
 
 
  https://user-images.githubusercontent.com/118078892/215085534-5536802f-692e-4e4c-9d58-db3cdd8b1a4e.mp4
 
-- Customize any website and save the customization. Now whenever you visit the website you can see the same customization or use disable all setting option to see original website
+- Customize any website and save the customization. Use disable all setting option to see original website.
 
 
 
 https://user-images.githubusercontent.com/118078892/215086000-8597c12b-a37e-4816-ad0b-b1027020852c.mp4
 
 
--  Customize any section of the website using focus mode.
+- Customize any section of the website using focus mode.
 
 
 
