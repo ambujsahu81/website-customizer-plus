@@ -18,12 +18,29 @@ This extension provides ton of features to make your browsing experience unique 
 - offers option to use dark mode that aims to reduce the eyestrain of the user.
 - simple interface to use.
 
-## Watch a small demo below to understand how it works.
+## Demo.
+
+- Improve reading experience by using Focus Mode and enabling adblocker or by hiding images on any website
+
+
+
+https://user-images.githubusercontent.com/118078892/215085534-5536802f-692e-4e4c-9d58-db3cdd8b1a4e.mp4
+
+- Customize any website and save the customization. Now whenever you visit the website you can see the same customization or use disable all setting option to see original website
+
+
+
+https://user-images.githubusercontent.com/118078892/215086000-8597c12b-a37e-4816-ad0b-b1027020852c.mp4
+
+
+-  Customize any section of the website using focus mode.
 
 
 
 
-https://user-images.githubusercontent.com/118078892/215018592-78282805-1c67-4bf5-851f-03bdc5f52548.mp4
+
+https://user-images.githubusercontent.com/118078892/215086280-cb934bcf-e3e8-46fb-93bd-ed2e91f0e088.mp4
+
 
 
 
