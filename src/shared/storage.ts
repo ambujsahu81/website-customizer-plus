@@ -1,4 +1,19 @@
-export  type PageStyle = {url: string, removeMode: boolean, darkMode: boolean, adblocker: boolean, hideImages: boolean};
+export  type PageStyle = {url: string,
+    removeMode: boolean,
+    darkMode: boolean,
+    adblocker: boolean,
+    hideImages: boolean,
+    saveCustomOption: boolean,
+    customBackground: string | null,
+    customFontFamily: string | null,
+    customFontSize: string | null,
+    customeFontWeight:string | null,
+    customFontColor: string | null,
+    customFontSelector: string | null,
+    clearAll: boolean,
+    clear: boolean
+  };
+    
 
 export class Configs {
   pageStyle: PageStyle[] = [];

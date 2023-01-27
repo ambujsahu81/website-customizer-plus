@@ -6,20 +6,36 @@ import './websiteCustomizerPlus.css';
 const objectToBeRemoved: string[] = [];
 let pageStyle: PageStyle;
 let intervalID : any;
+let removeDomState: boolean = false;
 
 const updateDom = (updatedConfigs?: Configs): void => {
   configStorage.get((configs) => {
     if (configs) {
       const updatedPageStyle: PageStyle = configs.pageStyle.find(config => config.url === Util.getHostName(document.URL))!;
+      let pageStyleIndex = configs.pageStyle.findIndex(config => config.url === Util.getHostName(document.URL))!;
       if (updatedPageStyle) {
+        if (updatedPageStyle.clear) {
+          configs.pageStyle[pageStyleIndex].clear = false;
+          configStorage.set(configs);
+          document.location.reload();
+          return;
+        }
+        if (updatedPageStyle.clearAll) {
+          document.location.reload();
+          return;
+        }
         EnableDarkMode(updatedPageStyle.darkMode);
         if (updatedPageStyle.adblocker) {
-          intervalID = setInterval(enableAdblocker, 3000);
+          intervalID = setInterval(enableAdblocker, 500);
         } else {
           clearInterval(intervalID);
         }
         HideAllImages(updatedPageStyle.hideImages);
-        hideElementsFromDom(updatedPageStyle.removeMode);
+        if (updatedPageStyle.removeMode != removeDomState) {
+          hideElementsFromDom(updatedPageStyle.removeMode);
+          removeDomState = updatedPageStyle.removeMode;
+        }
+        applyCustomPropertiesToDom(updatedPageStyle);
       }
     }
   });
@@ -29,24 +45,37 @@ const refresh = (): void => {
   configStorage.get((configs) => {
     if (configs) {
       pageStyle = configs.pageStyle.find(config => config.url === Util.getHostName(document.URL))!;
+      let pageStyleIndex = configs.pageStyle.findIndex(config => config.url === Util.getHostName(document.URL))!;
       if (pageStyle) {
-        // set the hide dom option to false
-        let pageStyleIndex = configs.pageStyle.findIndex(config => config.url === Util.getHostName(document.URL))!;
+        if (pageStyle.clearAll) {
+          return;
+        }
+        // set the hide dom option to false 
         configs.pageStyle[pageStyleIndex].removeMode = false;
-        configStorage.set(configs);
+        if (!pageStyle.saveCustomOption) {
+          pageStyle.customBackground = '#FFFFFF';
+          pageStyle.customFontColor = '#FFFFFF';
+          pageStyle.customFontFamily = '';
+          pageStyle.customFontSelector = '';
+          pageStyle.customFontSize = '';
+          pageStyle.customeFontWeight = '';
+        }
 
+        configStorage.set(configs);
         EnableDarkMode(pageStyle.darkMode);
         if (pageStyle.adblocker) {
-          intervalID = setInterval(enableAdblocker, 3000);
+          intervalID = setInterval(enableAdblocker, 500);
         } else {
           clearInterval(intervalID);
         }
         HideAllImages(pageStyle.hideImages);
+        if (pageStyle.saveCustomOption) {
+          applyCustomPropertiesToDom(pageStyle);
+        }
       }
     }
   });
 }
-
 refresh();
 configStorage.listen(updateDom);
 
@@ -180,10 +209,13 @@ const shouldIgnore = (elem: any) => {
 
 }
 
-const hideElementsFromDom = (flag: boolean): void => {
+const hideElementsFromDom = (flag: boolean): void => {  
   if (flag) {
+    if (document.getElementById('overlayWCP')) {
+      return;
+    }
     const overlay = document.createElement('div');
-    overlay.id = 'overlay';
+    overlay.id = 'overlayWCP';
     overlay.style.cssText = `position: fixed;
     width: 100%;
     height: 100%;
@@ -233,7 +265,8 @@ const hideElementsFromDom = (flag: boolean): void => {
     document.body.querySelectorAll('a').forEach(Element => Element.style.pointerEvents = 'none' );
     document.addEventListener('click', setFocusObject);
   } else {
-    document.getElementById('overlay')?.remove();
+    document.location.reload();
+    document.getElementById('overlayWCP')?.remove();
     document.querySelectorAll('.WCPElement').forEach(element => {
       (element as HTMLElement).style.zIndex = "intial";
       (element as HTMLElement).style.position = "inherit"
@@ -249,15 +282,44 @@ const setFocusObject = (e: any): void => {
 
 const removeOverlay = (): void => {  
   document.removeEventListener('click', setFocusObject);
-  document.getElementById('overlay')!.style.background = "rgb(255 255 255 / 100%)";
+  document.getElementById('overlayWCP')!.style.background = "rgb(255 255 255 / 100%)";
   document.getElementById('headerOne')!.innerText =" FocusMode is On";
   document.getElementById('headerTwo')?.remove();
   document.getElementById('removeBttn')?.remove();
+  document.querySelectorAll('*').forEach(element => {
+    (element as HTMLElement).style.zIndex = "unset";
+    // removeZIndexFromParent(element);
+  })
+  document.getElementById('overlayWCP')!.style.zIndex = '9999';
   document.querySelectorAll('.WCPElement').forEach(element => {
     (element as HTMLElement).style.border = "none";
     (element as HTMLElement).style.zIndex = "999999";
-    (element as HTMLElement).style.position = "sticky"
+    (element as HTMLElement).style.position = "relative"
+    // removeZIndexFromParent(element);
   })
 }
 
- 
+
+const applyCustomPropertiesToDom = ( pageStyle: PageStyle): void => {
+  if (pageStyle.customBackground != '#FFFFFF') {
+    document.body.style.background = pageStyle.customBackground!;
+  }
+  let font_selector = '*'; 
+  if (pageStyle.customFontSelector != '') {
+    font_selector = pageStyle.customFontSelector!;
+  }
+  document.body.querySelectorAll(font_selector).forEach(Element => {
+    if (pageStyle.customFontFamily!='') {
+      (Element as HTMLElement).style.fontFamily = pageStyle.customFontFamily!;
+    }
+    if (pageStyle.customeFontWeight!='') {
+      (Element as HTMLElement).style.fontWeight = pageStyle.customeFontWeight!;
+    }
+    if (pageStyle.customFontColor!="#FFFFFF") {
+      (Element as HTMLElement).style.color = pageStyle.customFontColor!;
+    }
+    if (pageStyle.customFontSize!='') {
+      (Element as HTMLElement).style.fontSize = pageStyle.customFontSize! + 'rem';
+    }
+  })
+}

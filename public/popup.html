@@ -1,90 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Webstie Customizer Plus</title>
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body>
-    <div class="card">
-      <div class="header">
-        <h2><img src="./icons/icon_32.png" width="25px" height="19px" class="Img" alt="Remove this image" />Webstie Customizer Plus</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Webstie Customizer Plus</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="card">
+    <div class="header">
+      <h2><img src="./icons/icon_32.png" width="25px" height="19px" class="Img" alt="Remove this image" />Webstie
+        Customizer Plus</h2>
+    </div>
+    <div class="card-body" id="config">
+      <div class="site-setting padding-left">
+        <div class="line-item">
+          <label id="siteInfo" class="site-info"></label>
+          <span class="sub-label">Toggle all setting</span>
+        </div>
+        <div class="line-item paddingTop">
+          <input type="checkbox" id="disable-all-setting" checked="true" />
+          <span class="sub-label paddingTop">on/off</span>
+        </div>
       </div>
-      <div class="card-body" id="config">
-        <div class="site-setting padding-left">
-          <div class="line-item">
-            <label id="siteInfo" class="site-info"></label>
-            <span  class="sub-label">Toggle all setting</span>
-          </div>
-          <div class="line-item paddingTop">
-            <input type="checkbox" id="disable-all-setting" checked="true"/>
-            <span class="sub-label paddingTop">on/off</span>  
-          </div>
-        </div>
-        <div class="tab">
-          <button class="tablinks" id="configButton">configuration</button>
-          <button class="tablinks" id="customOptionButton">custom option</button>
-        </div>
-        <!-- <h4 class="padding-left">Site Configuration</h4>
+      <div class="tab">
+        <button class="tablinks" id="configButton">configuration</button>
+        <button class="tablinks" id="customOptionButton">custom option</button>
+      </div>
+      <!-- <h4 class="padding-left">Site Configuration</h4>
         <br> -->
-        <div id="configuration" class="tabcontent marginTop"> 
-          <div class="config-items">
-            <label for="dark-mode" class="defaultWidth">Enable dark mode</label>
-            <input type="checkbox" id="dark-mode" />
-          </div>         
-          <div class="config-items">
-            <label for="enable-adblocker" class="defaultWidth">Enable adblocker</label>
-            <input type="checkbox" id="enable-adblocker" />
-          </div>
-          <div class="config-items paddingTop"> 
-            <label for="remove-mode" class="defaultWidth">Remove from dom</label>
-            <input type="checkbox" id="remove-mode" />
-          </div>
-          <div class="config-items">
-            <label for="hide-all-images" class="defaultWidth">Hide all images</label>
-            <input type="checkbox" id="hide-all-images" />
-          </div>         
+      <div id="configuration" class="tabcontent marginTop">
+        <div class="config-items paddingTop">
+          <label for="remove-mode" class="defaultWidth">Enable focus mode</label>
+          <input type="checkbox" id="remove-mode" />
         </div>
-        <!-- <h4 class="padding-left">Apply custom option</h4> -->
-        <div id="customOption" class="tabcontent">          
-          <div class="config-select-item">
-            <span class="select-sub">Background color</span>
-            <input type="color" id="favcolor" name="favcolor" value="#3eac73">
-          </div>          
-          <div class="config-select-item">
-            <span  class="select-sub">Font Family</span>
-            <select name="cars" id="cars">
-              <option value="Gloria Hallelujah">Gloria Hallelujah</option>
-            </select>
-          </div>
-          <div class="config-select-item">
-            <span  class="select-sub">Font size</span>
-            <select name="cars" id="cars">
-              <option value="Gloria Hallelujah">small</option>
-            </select>
-          </div>
-          <div class="config-select-item">
-            <span  class="select-sub">Font weight</span>
-            <select name="fonts" id="fonts">
-              <option value="500">500</option>
-            </select>
-          </div>
-          <div class="config-select-item">
-            <span class="select-sub">Font color</span>
-            <input type="color" id="favcolor" name="favcolor" value="#1f0171">
-          </div>
-          <div class="config-select-item">
-            <span class="select-sub">Apply font style only to</span>
-            <input type="text" id="favcolor" name="favcolor" value="h1">
-          </div>
-        </div>        
+        <div class="config-items">
+          <label for="dark-mode" class="defaultWidth">Enable dark mode</label>
+          <input type="checkbox" id="dark-mode" />
+        </div>
+        <div class="config-items">
+          <label for="enable-adblocker" class="defaultWidth">Enable adblocker</label>
+          <input type="checkbox" id="enable-adblocker" />
+        </div>
+
+        <div class="config-items">
+          <label for="hide-all-images" class="defaultWidth">Hide all images</label>
+          <input type="checkbox" id="hide-all-images" />
+        </div>
       </div>
+      <!-- <h4 class="padding-left">Apply custom option</h4> -->
+      <div id="customOption" class="tabcontent">
+        <div class="config-select-item">
+          <span class="select-sub">Background color</span>
+          <input type="color" id="backGroundColor" name="favcolor" value="#FFFFFF">
+        </div>
+        <div class="config-select-item">
+          <span class="select-sub">Font Family</span>
+          <select name="cars" id="fontFamily">
+            <option disabled selected value=''> -- select an option -- </option>
+            <option value="Helvetica">Helvetica (sans-serif)</option>
+            <option value="Arial">Arial (sans-serif)</option>
+            <option value="Arial Black">Arial Black (sans-serif)</option>
+            <option value="Verdana">Verdana (sans-serif)</option>
+            <option value="Tahoma">Tahoma (sans-serif)</option>
+            <option value="Trebuchet MS">Trebuchet MS (sans-serif)</option>
+            <option value="Impact">Impact (sans-serif)</option>
+            <option value="Gill Sans">Gill Sans (sans-serif)</option>
+            <option value="Georgia">Georgia (serif)</option>
+            <option value="Palatino">Palatino (serif)</option>
+            <option value="Baskerville">Baskerville (serif)</option>
+            <option value="Andalé Mono">Andalé Mono (monospace)</option>
+            <option value="Courier">Courier (monospace)</option>
+            <option value="Lucida">Lucida (monospace)</option>
+            <option value="Monaco">Monaco (monospace)</option>
+            <option value="Bradley Hand">Bradley Hand (cursive)</option>
+            <option value="Brush Script MT">Brush Script MT (cursive)</option>
+            <option value="Luminari">Luminari (fantasy)</option>
+            <option value="Monaco">Monaco (monospace)</option>
+            <option value="Comic Sans MS">Comic Sans MS (cursive)</option>
+          </select>
+        </div>
+        <div class="config-select-item">
+          <span class="select-sub">Font size</span>
+          <select name="cars" id="fontSize">
+            <option disabled selected value=''> -- select an option -- </option>
+            <option value="1">1 rem</option>
+            <option value="1.5">1.5 rem</option>
+            <option value="2">2 rem</option>
+            <option value="2.5">2.5 rem</option>
+            <option value="3">3 rem</option>
+            <option value="3.5">3.5 rem</option>
+            <option value="4">4 rem</option>
+            <option value="4.5">4.5 rem</option>
+            <option value="5">5 rem</option>
+            <option value="5.5">5.5 rem</option>
+          </select>
+        </div>
+        <div class="config-select-item">
+          <span class="select-sub">Font weight</span>
+          <select name="fonts" id="fontWeight">
+            <option disabled selected value=''> -- select an option -- </option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="700">700</option>
+            <option value="800">800</option>
+            <option value="900">900</option>
+          </select>
+        </div>
+        <div class="config-select-item">
+          <span class="select-sub">Font color</span>
+          <input type="color" id="fontColor" name="favcolor" value="#FFFFFF">
+        </div>
+        <div class="config-select-item">
+          <span class="select-sub">Apply font style only to</span>
+          <input type="text" id="fontSelector" name="favcolor" value="" placeholder="please use html tag e.g. P,H1">
+        </div>
+        <div class="button-row">
+          <button class="bttn" id="save-button">Save</button>
+          <button class="bttn" id="clear-button">clear</button>
+        </div>
+
+      </div>
+    </div>
 
     <div class="footer">
       <a href="https://github.com/ambujsahu81/Website-Customizer-Plus" target="_blank">Github</a>
       <a href="https://github.com/ambujsahu81/Website-Customizer-Plus/issues" target="_blank">Help</a>
     </div>
-    </div>
-    <script src="popup.js"></script>
-  </body>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>

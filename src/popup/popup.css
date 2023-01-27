@@ -182,3 +182,34 @@ a:hover {
 .Img{
   margin-right: 0.5rem;
 }
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.bttn {
+  margin-inline: 0.8rem;
+  border: 0.2rem solid #016c83;
+  background: #024b5a;
+  color: white;
+  padding: 0.4rem;
+}
+
+.bttn:hover {
+  color: #ff7777;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(255, 255, 255);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(255, 255, 255);
+}
