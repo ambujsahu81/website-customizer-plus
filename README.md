@@ -24,7 +24,7 @@ This extension provides ton of features to make your browsing experience unique 
 
 
 
-https://user-images.githubusercontent.com/118078892/215085534-5536802f-692e-4e4c-9d58-db3cdd8b1a4e.mp4
+ https://user-images.githubusercontent.com/118078892/215085534-5536802f-692e-4e4c-9d58-db3cdd8b1a4e.mp4
 
 - Customize any website and save the customization. Now whenever you visit the website you can see the same customization or use disable all setting option to see original website
 
@@ -48,10 +48,16 @@ https://user-images.githubusercontent.com/118078892/215086280-cb934bcf-e3e8-46fb
 
 
 
-## Install from Chrome Web Store
+## Steps to install
+```js
+ git clone https://github.com/ambujsahu81/Website-Customizer-Plus.git
+ cd Website-Customizer-Plus
+ npm install
+ npm run build 
+```
+[load the build folder manually in chrome](https://github.com/ambujsahu81/Website-Customizer-Plus)
 
-Currently this project is under development, Hence not available in chrome web store.
-
-
+## Contributing
+If you have suggestions you can open an issue, or even create a pull request! It will be reviewd as soon as possible. Thank you!
 
 
