@@ -31,6 +31,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@cliqz/adblocker-webextension": "^1.25.2"
+
   }
 }
