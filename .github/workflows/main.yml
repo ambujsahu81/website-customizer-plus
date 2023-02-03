@@ -3,14 +3,35 @@ name: check build
 on:
   push:
     branches:
-    - 'main'
-    pull_request:
-      branches:
       - 'main'
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  hello:
+  test-build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['14']
     steps:
-      - run: echo "Hello world"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm run build
 
+  test-code:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['14']
+    name: Prettier on Node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm run prettier:check
