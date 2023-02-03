@@ -3,14 +3,15 @@ import * as Util from './shared/utils';
 import './websiteCustomizerPlus.css';
 
 let pageStyle: PageStyle;
-let intervalID:  NodeJS.Timeout;
+let intervalID: NodeJS.Timeout;
 let removeDomState = false;
 
 const updateDom = (): void => {
   configStorage.get((configs) => {
     if (configs) {
       const updatedPageStyle: PageStyle = configs.pageStyle.find(
-        (config) => config.url === Util.getHostName(document.URL))!;
+        (config) => config.url === Util.getHostName(document.URL)
+      )!;
       const pageStyleIndex = configs.pageStyle.findIndex((config) => config.url === Util.getHostName(document.URL))!;
       if (updatedPageStyle) {
         if (updatedPageStyle.clear) {
