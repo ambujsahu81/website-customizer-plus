@@ -13,11 +13,11 @@ body {
 }
 
 .card-body {
-  margin-top: 0.5rem;;
+  margin-top: 0.5rem;
   font-size: 0.8rem;
 }
 
-.site-setting { 
+.site-setting {
   margin-top: 0.8rem;
   font-size: 0.8rem;
   display: flex;
@@ -25,7 +25,7 @@ body {
 
 .site-info {
   border: 0.2rem solid #016c83;
-  padding-top: 0.3rem;  
+  padding-top: 0.3rem;
   padding-bottom: 0.3rem;
   padding-inline: 0.2rem;
   margin-right: 0.5rem;
@@ -64,11 +64,11 @@ h4 {
   color: #ff7777;
   margin-bottom: 0rem;
   padding-bottom: 0rem;
-  border-bottom:0.2rem solid #016c83;
+  border-bottom: 0.2rem solid #016c83;
 }
 
 .padding-left {
-  padding-left: 0.9rem; 
+  padding-left: 0.9rem;
 }
 
 .config-items {
@@ -78,7 +78,7 @@ h4 {
   margin-bottom: 0.5rem;
 }
 
-input[type="color" i] {
+input[type='color' i] {
   padding: 0rem;
   width: 9.5rem;
   height: 1.1rem;
@@ -97,12 +97,10 @@ select {
   padding-left: 1.9rem;
 }
 
-
 .select-sub {
   color: #96a7c1;
   margin-bottom: 0.3rem;
 }
-
 
 /* Style the tab */
 .tab {
@@ -147,7 +145,7 @@ select {
   border-top: none;
 }
 
-input[type="text" i] {
+input[type='text' i] {
   width: 9rem;
 }
 
@@ -179,7 +177,7 @@ a:hover {
   color: #ff7777;
 }
 
-.Img{
+.Img {
   margin-right: 0.5rem;
 }
 
@@ -201,15 +199,18 @@ a:hover {
   color: #ff7777;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgb(255, 255, 255);
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: rgb(255, 255, 255);
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: rgb(255, 255, 255);
 }

@@ -1,0 +1,16 @@
+name: check build
+
+on:
+  push:
+    branches:
+    - 'main'
+    pull_request:
+      branches:
+      - 'main'
+
+jobs:
+  hello:
+    runs-ons: ubuntu-latest
+    steps:
+      - run: echo "Hello world"
+
