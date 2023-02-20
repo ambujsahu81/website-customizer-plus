@@ -4,7 +4,7 @@ Website customizer plus extension can help to customize any website with few sim
 
 This extension provides ton of features to make your browsing experience unique and smooth, oriented exactly as per your preferences.
 
-> Note: This extension works efficienlty with websites with articles or readable content.
+> Note: This extension works efficienlty with websites that contains articles or blogs.
 
 ## Features
 - Offers option to remove ads on page, which does improve readability.
