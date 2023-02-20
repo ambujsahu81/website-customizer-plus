@@ -1,10 +1,10 @@
-
-# ![icon_32](https://user-images.githubusercontent.com/118078892/213908738-9b5ac0a4-e8d7-424b-a5c0-0b740328246d.png) Website Customizer Plus 
-
+# <img width="350" height="400" align="right" src="https://user-images.githubusercontent.com/118078892/220065222-a732dff5-7a78-4853-b5a6-d54d8c5fa8bc.PNG"> Website Customizer Plus
 
 Website customizer plus extension can help to customize any website with few simple clicks.
 
 This extension provides ton of features to make your browsing experience unique and smooth, oriented exactly as per your preferences.
+
+> Note: This extension works efficienlty with websites with articles or readable content.
 
 ## Features
 - Offers option to remove ads on page, which does improve readability.
